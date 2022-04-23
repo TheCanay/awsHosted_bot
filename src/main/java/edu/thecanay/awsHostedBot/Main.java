@@ -2,7 +2,6 @@ package edu.thecanay.awsHostedBot;
 
 import edu.thecanay.awsHostedBot.bot.Bot;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
-import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
 public class Main {
@@ -10,8 +9,8 @@ public class Main {
         try {
             TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
             telegramBotsApi.registerBot(new Bot());
-        } catch (TelegramApiException exception) {
-
+        } catch (Exception exception) {
+            exception.printStackTrace();
         }
     }
 }
